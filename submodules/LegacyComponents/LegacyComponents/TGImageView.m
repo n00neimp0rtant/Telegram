@@ -28,6 +28,10 @@ NSString *TGImageViewOptionSynchronous = @"TGImageViewOptionSynchronous";
     self = [super initWithFrame:frame];
     if (self != nil)
     {
+        if (iosMajorVersion() >= 11) {
+            self.accessibilityIgnoresInvertColors = true;
+        }
+        
         _disposable = [[SMetaDisposable alloc] init];
         _legacyAutomaticProgress = true;
     }
